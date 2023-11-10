@@ -1,11 +1,9 @@
 from django.contrib import admin
 
-from . models import ShippingAddress, Order, OrderItem
+from .models import Order, OrderItem, ShippingAddress
 
 admin.site.register(ShippingAddress)
 
 admin.site.register(Order)
 
 admin.site.register(OrderItem)
-
-

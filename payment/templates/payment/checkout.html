@@ -8,12 +8,12 @@
 {% block content %}
 
 <style>
-    
-    body 
+
+    body
     {
-        
+
         background-color: gray;
-    
+
     }
 
 
@@ -33,7 +33,7 @@
                     <h3> <i class="fa fa-chevron-circle-right" aria-hidden="true"></i> &nbsp; Complete your order </h3>
 
                     <p> Please enter in the relevant information below. </p>
- 
+
 
 
                     <hr>
@@ -41,7 +41,7 @@
                     <br>
 
                     <div class="form-field">
-                    
+
                         <input class="form-control validate" id="name" type="text" placeholder="Full name*" autocomplete="off" value="{{shipping.full_name}}" required>
 
                     </div>
@@ -56,10 +56,10 @@
 
                     </div>
 
-                    
+
                     <br>
 
-                    
+
                     <div class="form-field">
 
                         <input class="form-control validate" id="address1" type="text" placeholder="Address 1*" autocomplete="off" value="{{shipping.address1}}" required>
@@ -105,7 +105,7 @@
                         <input class="form-control" id="zipcode" type="text" placeholder="Zip code (Optional)" autocomplete="off" value="{{shipping.zipcode}}">
 
                     </div>
-            
+
                 </div>
 
                 <br>
@@ -130,7 +130,7 @@
 
         </div>
 
-        
+
 
         <br>
 
@@ -140,7 +140,7 @@
 
     <!-- Ajax integration -->
 
-    
+
 
     <script>
 
@@ -167,7 +167,7 @@
 
 
             // Complete order - NO SHIPPING
-            
+
             document.querySelectorAll('.validate').forEach(item => {
                 item.addEventListener('keyup', event => {
 
@@ -200,7 +200,7 @@
 
                     }
 
-                    
+
                     var isOrderVerified = checkInputs()
 
 
@@ -238,7 +238,7 @@
 
 
              //  The required fields are filled out
-            
+
              var order_verified = 'Yes';
 
              function checkInputs(){
@@ -266,7 +266,7 @@
 
              }
 
-             
+
              var isOrderVerified = checkInputs()
 
 
@@ -288,7 +288,7 @@
 
              }
 
-                 
+
 
 
         },
@@ -320,7 +320,7 @@
             const captureOrderHandler = (details) => {
 
                 const payerName = details.payer.name.given_name;
-                
+
                 console.log('Transaction completed');
 
 
@@ -331,38 +331,38 @@
                     type: 'POST',
                     url: '{% url "complete-order" %}',
                     data: {
-        
+
                         name: $('#name').val(),
                         email: $('#email').val(),
-        
+
                         address1: $('#address1').val(),
                         address2: $('#address2').val(),
                         city: $('#city').val(),
-                        
+
                         state: $('#state').val(),
                         zipcode: $('#zipcode').val(),
-        
-        
+
+
                         csrfmiddlewaretoken: "{{csrf_token}}",
                         action: 'post'
-        
+
                     },
-        
+
                     success: function(json){
-        
+
                         //console.log(json)
-        
+
                         window.location.replace("{% url 'payment-success' %}");
-        
-        
+
+
                     },
-        
+
                     error: function(xhr, errmsg, err){
-        
+
                         window.location.replace("{% url 'payment-failed' %}");
-        
+
                     }
-        
+
                 });
 
 
@@ -400,7 +400,7 @@
 
 
     // Complete checkout
-    
+
     /*
     $(document).on('submit',  function(e){
 
@@ -418,7 +418,7 @@
                 address1: $('#address1').val(),
                 address2: $('#address2').val(),
                 city: $('#city').val(),
-                
+
                 state: $('#state').val(),
                 zipcode: $('#zipcode').val(),
 
@@ -447,8 +447,8 @@
 
 
     })*/
-    
-    
+
+
 
 
    </script>
