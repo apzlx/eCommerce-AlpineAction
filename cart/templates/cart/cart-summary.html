@@ -13,7 +13,7 @@
 
     <div class="container">
 
-      <h1 class="h5"> Shopping cart </h1>
+      <h1 class="text-primary-emphasis"> Shopping cart </h1>
 
 	    <hr>
 
@@ -28,9 +28,9 @@
 
       <div class="row mb-4 border product-item">
 
-        <div class="col-md-3 col-lg-2 order-md-first bg-light">
+        <div class="col-md-3 col-lg-2 order-md-first bg-white d-flex justify-content-center align-items-center">
 
-            <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{product.image.url}}"> <!-- Product image -->
+            <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ product.image.url }}"> <!-- Product image -->
 
         </div>
 
@@ -45,29 +45,20 @@
 
           <div class="border">
 
-            <div class="col border-bottom">
+            <div class="col">
 
                 <div class="row p-3">
 
-                <div class="col-6"> Product </div>
+                <div class="col-6 fw-bold"> Price </div>
 
-                <div class="col-6 text-end"><span class="h6 fw-bold">$ {{product.price|mul:item.qty}} </span></div>
+                <div class="col text-end"><span class="h6 fw-bold">$ {{product.price|mul:item.qty}} </span></div>
 
-              </div>
 
-            </div>
+                <div class="col-12" >
 
-            <div class="col">
+                  <label for="select" class = "fw-bold">Quantity</label>
 
-              <div class="row p-3">
-
-                <div class="col-12">
-
-                  <label for="select">Qty</label>
-
-                  &nbsp;
-
-                  <select id="select{{product.id}}">
+                  <select class="form-select" id="select{{product.id}}">
 
                     <option selected>
 
@@ -85,7 +76,7 @@
 
                   </select>
 
-                  <br> <br>
+                  <br>
 
                   <button type="button" data-index="{{product.id}}"
                     class="btn btn-primary btn-sm update-button">
@@ -104,11 +95,10 @@
 
                 </div>
 
+              </div>
             </div>
 
-            </div>
-
-            </div>
+          </div>
 
         </div>
 
@@ -166,11 +156,9 @@
 
               location.reload();
 
-
               document.getElementById("cart-qty").textContent = json.qty
 
               document.getElementById("total").textContent = json.total
-
 
           },
 

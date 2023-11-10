@@ -27,16 +27,11 @@
 
     <body>
 
-        <br>
-
-        <div class="container bg-white shadow-md p-5 form-layout">
+        <div class="container shadow-md p-5 form-group">
 
             <h3> Create your account </h3>
 
-            <h5> Purchase your favourite items today! </h5>
-
             <hr>
-            <br>
 
             <form method="POST" autocomplete="off">
 
@@ -44,23 +39,17 @@
 
                 {{form.username|as_crispy_field}}
 
-                <br> <br>
-
+                <br>
 
                 {{form.email|as_crispy_field}}
 
-                <br> <br>
-
+                <br>
 
                 {{form.password1|as_crispy_field}}
 
-                <br> <br>
-
-
                 {{form.password2|as_crispy_field}}
 
-
-                <br> <br>
+                <br>
 
                 <button type="submit" class="btn btn-primary navbar-btn text-white w-100 p-2"> &nbsp; Create account </button>
 
